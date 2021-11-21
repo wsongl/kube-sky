@@ -1,0 +1,31 @@
+server:
+  host: localhost
+  post: 8000
+  mode: dev
+ssl:
+  domain: localhost:8000
+  enable: false
+  key: keystring
+  pem: temp/pem.pem
+log:
+  level: debug
+  maxsize: 1024
+  maxage: 30
+  maxbackups: 10
+  localtime: 1
+  compress: 1
+  path: log/kube-sky.log
+db:
+  dsn: host=localhost user=postgres password=123456 dbname=kube-sky port=5432 sslmode=disable TimeZone=Asia/Shanghai
+  maxOpenConn: 20000
+  maxIdleConn: 0
+  connMaxLifetime: 60
+jwt:
+  expires: 60
+  secret: 7c61aa49bd124736917207eb960cede9
+  issuer: kube-sky
+casbin:
+  rbacModel: config/rbac_model.conf
+  tableName: system_casbin_rule
+  isTiming: false
+  intervalTime: 60
